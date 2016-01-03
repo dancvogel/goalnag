@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <EditText android:id="@+id/edit_goal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_goal"
+        android:layout_marginBottom="10dp"/>
+
+    <Button android:id="@+id/add_nag_btn"
+        android:onClick="onShowAddNag"
+        android:layout_below="@id/edit_goal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/add_new_nag"
+        android:background="@drawable/round_button_green" />
+
+    <LinearLayout android:id="@+id/add_nag_group"
+        android:orientation="vertical"
+        android:layout_below="@id/add_nag_btn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:background="@color/grey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="end"
+            android:onClick="onCancelNewNagClick"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/cancel_new_nag"
+            android:src="@android:drawable/ic_menu_close_clear_cancel" />
+        <TimePicker
+            android:id="@+id/new_nag_time"
+            android:timePickerMode="spinner"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="0dp"
+            android:layout_margin="0dp"
+            android:layout_alignParentLeft="true" />
+        <ImageButton
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:onClick="onAddNagClick"
+            android:background="@drawable/round_button_green"
+            android:src="@drawable/ic_done_white_24dp" />
+    </LinearLayout>
+
+    <ListView android:id="@+id/list_nags"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/add_nag_group"
+        android:layout_above="@+id/btn_save" />
+
+    <Button android:id="@id/btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="saveGoal"
+        android:layout_alignParentBottom="true"
+        android:text="@string/save" />
+</RelativeLayout>
